@@ -1,0 +1,456 @@
+
+@import "mixin/mixins";
+body, button, input, select, textarea{
+    font: 12px/1.5 tahoma,arial,'微软雅黑';
+    color: #666;
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
+ dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, 
+ button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+} 
+
+ul{ 
+    list-style: none;
+}
+a{
+    cursor:pointer;
+    color: #666;
+    text-decoration: none;
+}
+div.site_topnav{
+    width:100%;
+    height:28px;
+    border-bottom: 1px solid #eceaeb;
+    background-color: #f7f7f7;
+    position: fixed;
+    top:0;
+    z-index: 2;
+    div.top_nav_info{
+        width:1190px;
+        height:28px;
+        margin: 0 auto;
+        position: relative;
+        line-height: 28px;
+        
+        @include clearfix;
+
+        div.region_wrap{
+            position: absolute;
+            i{
+                color:#DD0000;
+                width: 15px;
+                height: 15px;                
+            }
+            a{
+                text-decoration: none;
+                
+                &:hover{
+                    color: #DD0000;
+                }
+            }
+            //隐藏的城市
+            div.hidden_city_list{
+                position: absolute;
+                top:28px;
+                width:422px;
+                border: 1px solid #ECEAEB;
+                display: none;
+                z-index: 999;
+                ul{
+                    @include clearfix;
+                    list-style: none;
+                    li{
+                        float: left;
+                    }
+                }               
+                ul.hidden_list{
+                    background: #F2F2F2;
+                    width: 415px;
+                    height: 32px;
+                    padding-left: 8px;
+                    
+                    li{ 
+                        width:58px;
+                        height: 30px;
+                        text-align: center;
+                        padding-right: 6px;
+                        &:hover{
+                            cursor:pointer;
+                            /* border-bottom: #DD0000 2px solid;
+                            a{
+                                color: #DD0000;
+                            }    */                         
+                        }
+                    } 
+                }
+                .city_box div{
+                    display: none;
+                }
+                .city_box div ul.hidden_city{
+                    @include clearfix;
+                    list-style: none;
+                    padding-left: 32px;
+                    width: 390px;
+                    padding-bottom: 7px;
+                    background: #FFFFFF;
+
+                    li{
+                        float: left;
+                        width:75px;
+                        text-align: center;
+                        a.more{
+                            color:#A9A9A9;
+                        }
+                        a:hover{
+                            color: #DD0000;
+                        } 
+                    }
+                }
+            }
+        }
+        div.nav_info_right{
+            float: right;
+            //登录注册
+            p#login_reg{
+                float: left;
+                margin-right: 10px;
+                
+                a{
+                    margin-right: 10px;
+                    &:hover{
+                        color: #DD0000;
+                    } 
+                }                                                                                                                                                                                                                                               
+            }
+            ul {
+                float: left;
+                height:28px;              
+                li{  
+                    @include yidao(8px,8px,0px);
+                    padding:0 20px;  
+                    position: relative;
+                    float: left; 
+                        
+                    a{                      
+                        &:hover{
+                            color:  #DD0000;
+                        }
+                    }
+                    //我的齐家
+                    i.list_sec{
+                        display: inline-block;
+                        width: 7px;
+                        height:7px;
+                        background: url("../img/top_nav_icos.png") no-repeat 0 -29px;
+                        
+                    }
+                    a.list_five{
+                        font-size: 15px;
+                    }
+                    //手机齐家
+                    i.list_six{
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: 15px;
+                        height:25px;
+                        background: url("../img/nav_icon.png") no-repeat 0 -186px;  
+                    }
+                    .ewm_box{
+                        position: absolute;
+                        top: 28px;
+                        left: 0px;
+                        display: none;
+                        .more_app{
+                            position: absolute;
+                            width:130px;
+                            height: 26px;
+                            line-height: 26px;
+                            color: white !important;
+                            background: #EA2000;
+                            top: 316px;
+                            left: 0px;
+                            text-align: center;
+                        }
+                    }
+                    
+                    //电话
+                    i.list_seven{
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: 10px;
+                        height:25px;
+                        background: url("../img/top_nav_icos.png") no-repeat 0 -41px;                       
+                    }
+                    span.list_seven_phone{
+                        color: #DD0000;
+                        font-weight: bolder;
+                    }
+                    div.top_hidden_box{
+                        position: absolute;
+                        top:28px;
+                        left: 0;
+                        width: 100%;
+                        background: white;
+                        display: none;
+                        p{
+                            padding-left: 20px;
+                            &:hover{
+                                background: #F7F7F7;
+                                box-shadow: 0 0 1px #ECEAEB;
+                            }
+                        }
+                    }
+                }
+                li.li_first{
+                    &:hover{
+                        height: 29px;
+                        background: white;
+                        box-shadow: 0 0 1px #ECEAEB;
+                      
+                        div.top_hidden_box{
+                            display: block;
+                            z-index: 999;
+                        }
+                        i.list_sec{
+                            display: inline-block;
+                            width: 7px;
+                            height:7px;
+                            background: url("../img/top_nav_icos.png") no-repeat 0 0px;
+                            
+                        }
+                    }
+                }
+                li.li_second{
+                    &:hover{
+                        height: 29px;
+                        background: white;
+                        box-shadow: 0 0 1px #ECEAEB;
+                    }
+                }
+                li.li_third{
+                    &:hover{
+                        height: 29px;
+                        background: white;
+                        box-shadow: 0 0 1px #ECEAEB;
+                        div.top_hidden_box{
+                            display: block;
+                            z-index: 999;
+                        }
+                        i.list_sec{
+                            display: inline-block;
+                            width: 7px;
+                            height:7px;
+                            background: url("../img/top_nav_icos.png") no-repeat 0 0px;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+div.dropDown_ban{
+    width: 1200px;   
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    
+    div.dropDown_ban_close{
+        position: absolute;
+        top:10px;
+        right: 20px;
+        width:19px;
+        height:19px;
+        background: url("../img/index_ban_bg.png") no-repeat -48px 0px;
+        z-index: 2;
+    }
+    div.dropDown_ban_open{
+        position: absolute;
+        bottom:0px;
+        right: 9px;
+        width:25px;
+        height:46px;
+        background: url("../img/index_ban_bg.png") no-repeat -24px 0px;
+    }
+    div.dropDown_ban_down{
+        position: absolute;
+        bottom:0px;
+        right: 9px;
+        width:25px;
+        height:46px;
+        background: url("../img/index_ban_bg.png") no-repeat 0px 0px;
+        display: none;
+       
+    }
+    img{
+        display: block;
+       
+    }
+    img.dropDown_img2{
+        position:absolute;
+        top:0px;
+       
+    }
+}
+div.Jia_header{
+    width: 100%;
+    height:94px;
+    border-bottom: 2px solid #DD0000;
+    .Jia_header_main{
+        width: 1190px;
+        height: 94px;
+        margin: 0 auto;
+        .jia_logo{
+            height: 94px;
+            float: left;
+        }
+        .jia_nav{
+            float: left;
+            ul{
+                float: left;
+                padding-left: 20px;
+                li{
+                    float: left;
+                    width:110px;
+                    height:72px;
+                    cursor: pointer;
+                    border: 1px solid transparent;
+                    font-size: 16px;
+                    text-align: center;
+                    position: relative;
+                    div span.index_img{
+                        display: inline-block;
+                        margin: 20px 0 5px;
+                        width: 24px;
+                        height: 23px;
+                        // background:url('../img/jia-nav-icon.png') no-repeat 0px -23px;
+                    }
+                    div span.index_img2{
+                        display: inline-block;
+                        margin: 20px 0 5px;
+                        width: 24px;
+                        height: 23px;
+                        background:url('../img/icon_3d.png') no-repeat 0px 0px;
+                    }
+                    div i{
+                        display: block;
+                        position: absolute;
+                        border: 5px solid transparent;
+                        width: 0;
+                        height: 0;
+                        overflow: hidden;
+                        top: 65px;
+                        border-top: 5px solid #666;                       
+                    }
+                    .zzx{
+                        padding: 0;
+                        position:absolute;
+                        left:0px;
+                        border: 1px solid #CCCCCC;
+                        border-top:none;
+                        background: white;
+                        border-radius: 4px;
+                        width: 108px;
+                        display: none;
+                        padding-top: 10px;
+                       a{
+                            display: block;
+                            p{
+                                height:30px;
+                                width: 100%;
+                                font-size: 12px;
+                                line-height: 30px;
+                            }
+                        }
+                        
+                    }
+                    
+                }
+            }
+        }
+        .jia_research{
+            float: left;
+            padding:20px;
+            form{
+                div.form_div{
+                    border:1px solid #E6E6E6;
+                    background:#F9F9F9;
+                    width:314px;
+                    height:35px;
+                    text-align: center;
+                    line-height: 35px;
+                    span{
+                        position: relative;
+                        display: inline-block;
+                        width: 58px;
+                        i{
+                            display: inline-block;
+                            width: 7px;
+                            height: 7px;
+                            background: url("../img/top_nav_icos.png") no-repeat 0 -29px; 
+                        }
+                        ul.reUpU{
+                            display:none;
+                            position:absolute;
+                            border: 1px solid #e6e6e6;
+                            width: 100%;
+                            background: #fff;
+                            left: -1px;
+                            top: 34px;
+                            border-top: 1px solid #fff;
+                            border-radius: 4px;
+                            li{
+                                a{
+                                    display: inline-block;
+                                    width: 100%;
+                                    height:100%;
+                                    &:hover{
+                                        color: #DD0000;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .reInSub{
+                        float:right;
+                        width: 35px;
+                        height:35px;
+                        border-style: none;
+                        cursor: pointer;
+                        background:white url("../img/jia-nav-icon.png") 10px -46px no-repeat;text-indent: -999px;overflow: hidden;
+                    }
+                    .reInText{
+                        padding:0 10px;float:right;width: 200px;height:35px;border-style: none;border-left:1px solid  #E6E6E6;
+                    }
+                }
+            }
+            ul.reDownU{
+                margin-top: 6px;
+                @include clearfix;
+                li{
+                    float: left;
+                    margin-right: 15px;
+                    font-size: 14px;
+                    a{
+                        &:hover{
+                            color: #DD0000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.myhover{
+    border-bottom: #DD0000 2px solid;
+    a{
+        color: #DD0000;
+    }
+}
+.border_show{
+    border-color: #CCCCCC;
+    border-radius: 4px;
+    border-bottom: none;
+}
